@@ -69,13 +69,19 @@ Si le selector ne correspond à aucun pod, le Service ne trouve aucune destinati
 ## Exercice 5 — Scaling & mises à jour
 
 9. Sur quels nœuds se trouvent vos 3 réplicas ? Collez la sortie de `kubectl get pods -l app=site -o wide`.
-   ```
+```
+site-75775484b-2hj6g   1/1     Running   0          8m31s   10.42.1.6   k3d-lab-server-0   <none>           <none>
+site-75775484b-44cn7   1/1     Running   0          37s     10.42.3.6   k3d-lab-agent-1    <none>           <none>
+site-75775484b-x29hs   1/1     Running   0          37s     10.42.0.7   k3d-lab-agent-0    <none>           <none>
+```
 
-   ```
+Les 3 réplicas sont répartis sur 3 nœuds différents : k3d-lab-server-0 (control-plane), k3d-lab-agent-0 (worker) et k3d-lab-agent-1 (worker).
+
 10. Avec l'image `nginx:9.99`, quel statut avait le pod ? Quelle commande vous a donné la cause ?
-    >
+Le nouveau pod était en statut ImagePullBackOff car l'image nginx:9.99 n'existe pas. La commande kubectl describe pod a permis d'identifier la cause dans la section Events.
+
 11. Pendant la panne, le site restait-il accessible ? Pourquoi ?
-    >
+Oui, le site restait accessible car Kubernetes conservait les anciens pods fonctionnels pendant la mise à jour. Le rolling update permet ainsi d'éviter une interruption du service même si la nouvelle version échoue.
 
 ## Exercice 6 — Portainer & Mario
 

@@ -8,7 +8,7 @@ metadata:
   labels:
     app: site
 spec:
-  replicas: 1                      # Exercice 5 : vous changerez cette valeur
+  replicas: 3                      # Exercice 5 : vous changerez cette valeur
   selector:
     matchLabels:
       app: site                    # doit correspondre aux labels du template ci-dessous
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx:1.27              # utilisez nginx:1.27 (version précise, pas "latest")
+          image: nginx:1.28              # utilisez nginx:1.27 (version précise, pas "latest")
           ports:
             - containerPort: 80  # le port sur lequel nginx écoute
           volumeMounts:
