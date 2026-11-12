@@ -86,9 +86,12 @@ Oui, le site restait accessible car Kubernetes conservait les anciens pods fonct
 ## Exercice 6 — Portainer & Mario
 
 12. URL publique de votre Mario :
-    >
+https://animated-orbit-v66gg7676pxgcprvv-8585.app.github.dev/
+
 13. Retrouvez le Deployment `mario` en ligne de commande. Portainer et `kubectl` parlent-ils au même composant ? Lequel ?
-    >
+Oui, Portainer et kubectl communiquent avec le même composant : l'API Server Kubernetes, qui fait partie du Control Plane. Ils permettent tous les deux de gérer les ressources du cluster, comme les Deployments, les Services et les Pods.
+
+La différence est que Portainer utilise une interface graphique, tandis que kubectl utilise des commandes dans le terminal.
 
 ## Bonus (facultatif)
 
