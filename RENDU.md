@@ -10,9 +10,23 @@
 ## Exercice 1 — Cluster
 
 1. Combien de nœuds affiche `kubectl get nodes` ? Quel est le rôle de chacun ?
-   >
+
+Le cluster Kubernetes contient 3 nœuds :
+
+   - k3d-lab-server-0 : nœud control-plane (master). Il gère le cluster Kubernetes, son état et l'orchestration des applications.
+   - k3d-lab-agent-0 : nœud worker chargé d'exécuter les applications dans des pods.
+   - k3d-lab-agent-1 : deuxième nœud worker, qui exécute également les applications.
+
+Le cluster possède donc 1 control-plane et 2 workers.
+
 2. Que montre `docker ps` ? Qu'est-ce qu'un « nœud » dans k3d, concrètement ?
-   >
+La commande docker ps affiche 4 conteneurs Docker en cours d'exécution.
+
+- k3d-lab-server-0 correspond au control-plane.
+- k3d-lab-agent-0 et k3d-lab-agent-1 correspondent aux deux workers.
+- k3d-lab-serverlb est le load balancer qui permet de rediriger le trafic vers le cluster.
+
+Dans k3d, un nœud Kubernetes est un conteneur Docker exécutant k3s, version légère de Kubernetes. Permettant de simuler un cluster de plusieurs machines sur un seul environnement Linux.
 
 ## Exercice 2 — Premier déploiement
 
