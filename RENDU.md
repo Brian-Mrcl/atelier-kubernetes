@@ -47,9 +47,10 @@ Grâce au ReplicaSet, qui veille à maintenir le nombre de pods défini par le D
 ## Exercice 3 — Modifier un conteneur en direct
 
 5. Après suppression du pod, votre message « Bienvenue... » a-t-il survécu ? Pourquoi ?
-   >
+Non, le message « Bienvenue sur mon site Web » n'a pas survécu à la suppression du pod. Kubernetes a recréé un nouveau pod à partir de l'image nginx d'origine. Comme la modification avait été faite directement dans l'ancien conteneur, elle a été perdue.
+
 6. Pourquoi le `port-forward` a-t-il cessé de fonctionner après la suppression du pod ?
-   >
+Le port-forward a cessé de fonctionner parce qu'il était connecté au pod supprimé. Même si Kubernetes crée automatiquement un nouveau pod, le tunnel ne se reconnecte pas tout seul. Il faut donc relancer la commande port-forward.
 
 ## Exercice 4 — Déclaratif
 
