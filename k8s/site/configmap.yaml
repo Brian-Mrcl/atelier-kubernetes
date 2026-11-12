@@ -11,8 +11,17 @@ data:
     <html lang="fr">
       <head><meta charset="utf-8"><title>Mon site sur Kubernetes</title></head>
       <body>
-        <h1>Bienvenue sur mon site</h1>
-        <!-- TODO : personnalisez la page (votre nom, votre groupe...) -->
+        <h1>Bienvenue sur mon site Kubernetes !</h1>
+        <h2>Atelier Kubernetes 2026</h2>
+
+        <p>Auteur : Brian-Mrcl</p>
+        <p>Groupe : Ing2-RS3 Promo 2028</p>
+
+        <p>Ce site est hébergé sur un cluster Kubernetes.</p>
+
+        <p>La page HTML est stockée dans une ConfigMap
+        et servie par un conteneur nginx.</p>
         <p>Servi par Kubernetes.</p>
+        <p> Modification TEST </p>
       </body>
     </html>

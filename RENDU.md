@@ -55,9 +55,16 @@ Le port-forward a cessé de fonctionner parce qu'il était connecté au pod supp
 ## Exercice 4 — Déclaratif
 
 7. Quelle différence entre `kubectl create` et `kubectl apply` ?
-   >
+- kubectl create permet de créer une ressource Kubernetes de manière impérative, en donnant directement une instruction au cluster.
+
+- kubectl apply permet de créer ou de mettre à jour des ressources à partir de fichiers YAML qui décrivent l'état souhaité.
+
+Dans notre cas, nous avons utilisé kubectl apply pour déployer notre site et mettre à jour la ConfigMap sans recréer le pod ni interrompre le port-forward.
+
 8. À quoi sert le `selector` d'un Service ? Que se passe-t-il s'il ne correspond à aucun pod ?
-   >
+Le selector d'un Service permet d'identifier les pods vers lesquels envoyer le trafic réseau grâce à leurs labels.Dans notre cas, le Service site utilise le selector app: site pour cibler les pods possédant ce label.
+
+Si le selector ne correspond à aucun pod, le Service ne trouve aucune destination vers laquelle envoyer les requêtes. Le Service existe toujours, mais l'application n'est plus accessible à travers lui.
 
 ## Exercice 5 — Scaling & mises à jour
 
